@@ -52,8 +52,8 @@ class dcFilterAccessibleCaptcha extends dcSpamFilter
   public static function publicCommentFormAfterContent($core, $_ctx) {
     $accessibleCaptcha = new AccessibleCaptcha();
 
-    if (($hash = $_POST['c_question_hash'])) {
-      $question = $accessibleCaptcha->getQuestionForHash($hash);
+    if (isset($_POST['c_question_hash'])){
+      $question = $accessibleCaptcha->getQuestionForHash($_POST['c_question_hash']);
     } else {
       $question = $accessibleCaptcha->getRandomQuestionAndHash($core->blog->id);
     }

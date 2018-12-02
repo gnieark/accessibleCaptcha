@@ -58,7 +58,7 @@ class dcFilterAccessibleCaptcha extends dcSpamFilter
       $question = $accessibleCaptcha->getRandomQuestionAndHash($core->blog->id);
     }
     
-    $escaped_value = htmlspecialchars($_POST['c_answer'], ENT_QUOTES);
+    $escaped_value = isset($_POST['c_answer']) ? htmlspecialchars($_POST['c_answer'], ENT_QUOTES) : '';
     $escaped_question = htmlspecialchars($question['question'], ENT_QUOTES);
     $escaped_hash = htmlspecialchars($question['hash'], ENT_QUOTES);
         
